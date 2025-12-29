@@ -108,7 +108,50 @@ package com.example.springpractice.Sql;
     Example : SELECT Students.Name, Orders.OrderID FROM Students FULL JOIN Orders ON Students.ID = Orders.StudentID;
 
 
+    Advaced Sql :
+    stored procedures, views, indexes, triggers, transactions, normalization, denormalization, ACID properties, CAP theorem.
 
+    1. stored procedures: stored procedures are precompiled SQL statements that can be executed repeatedly.
+    Example : CREATE PROCEDURE GetStudents AS SELECT * FROM Students;
+
+    2. views: views are virtual tables that are based on the result set of a SQL query.
+    Example : CREATE VIEW StudentView AS SELECT Name, Age FROM Students WHERE Age > 18;
+
+    3. indexes: indexes are used to improve the performance of SQL queries by providing quick access to rows in a table.
+    Example : CREATE INDEX idx_name ON Students (Name);
+
+    4. triggers: triggers are special types of stored procedures that are automatically executed in response to certain events on a table.
+    Example : CREATE TRIGGER trg_after_insert AFTER INSERT ON Students FOR EACH ROW BEGIN INSERT INTO AuditLog (Action, Timestamp) VALUES ('Insert', NOW()); END;
+
+    5. transactions: transactions are a sequence of SQL statements that are executed as a single unit of work.
+    Example : BEGIN TRANSACTION; UPDATE Students SET Age = Age + 1 WHERE ID = 1; COMMIT;
+
+
+    6. normalization: normalization is the process of organizing data in a database to reduce redundancy and improve data integrity.
+    Example : First Normal Form (1NF), Second Normal Form (2NF), Third Normal Form (3NF)
+    7. denormalization: denormalization is the process of combining tables to improve read performance at the cost of write performance and data integrity.
+    Example : Combining Customer and Orders tables into a single table.
+
+    8. ACID properties: ACID properties are a set of properties that guarantee that database transactions are processed reliably.
+    Example : Atomicity, Consistency, Isolation, Durability
+    8.1 Atomicity : ensures that all operations within a transaction are completed successfully or none at all.
+    Example : If a transaction consists of multiple SQL statements, either all statements are executed successfully, or none are applied to the database.
+    8.2 Consistency : ensures that a transaction brings the database from one valid state to another valid state.
+    Example : If a transaction violates any database constraints, it will be rolled back to maintain data integrity.
+    8.3 Isolation : ensures that concurrent transactions do not interfere with each other.
+    Example : If two transactions are trying to update the same record simultaneously, isolation ensures that one transaction's changes are not visible to the other until it is committed.
+    8.4 Durability : ensures that once a transaction is committed, its changes are permanent and will survive any subsequent system failures.
+    Example : Once a transaction is committed, the changes made to the database will persist even if there is a power failure or crash immediately after  the commit.
+
+    9. CAP theorem: CAP theorem states that it is impossible for a distributed data store to simultaneously provide more than two out of the following three guarantees: Consistency, Availability, Partition tolerance
+    Example : A distributed database can be designed to be either CP (Consistency and Partition tolerance) or AP (Availability and Partition tolerance), but not both.
+
+
+    lock and deadlock in sql :
+    Lock : A lock is a mechanism used to control concurrent access to database resources, such as tables or rows, to ensure data integrity and consistency.
+    Example : When a transaction updates a record, it may acquire a lock on that record to prevent other transactions from modifying it until the first transaction is complete.
+    deadlock : A deadlock is a situation in which two or more transactions are waiting for each other to release locks on resources, resulting in a standstill where none of the transactions can proceed.
+    Example : Transaction A holds a lock on Resource 1 and is waiting for a lock on Resource 2, while Transaction B holds a lock on Resource 2 and is waiting for a lock on Resource 1.
 
 
 
