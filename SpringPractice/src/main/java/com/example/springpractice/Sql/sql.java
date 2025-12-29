@@ -93,6 +93,22 @@ package com.example.springpractice.Sql;
                           Having is used to filter groups based on a specified condition.
     Example : SELECT City, COUNT(*) FROM Students GROUP BY City HAVING COUNT(*) > 5;
 
+    Joins:
+    CREATE TABLE Students (ID int PRIMARY KEY, Name varchar(255));
+    CREATE TABLE Orders (OrderID int PRIMARY KEY, StudentID int, FOREIGN KEY (StudentID) REFERENCES Students(ID));
+
+    Inner Join : Returns records that have matching values in both tables.
+    Example : SELECT Students.Name, Orders.OrderID FROM Students INNER JOIN Orders ON Students.ID = Orders.StudentID;
+
+    Left Join : Returns all records from the left table and the matched records from the right table.
+    Example : SELECT Students.Name, Orders.OrderID FROM Students LEFT JOIN Orders ON Students.ID = Orders.StudentID;
+    Right Join : Returns all records from the right table and the matched records from the left table.
+    Example : SELECT Students.Name, Orders.OrderID FROM Students RIGHT JOIN Orders ON Students.ID = Orders.StudentID;
+    Full Join : Returns all records when there is a match in either left or right table.
+    Example : SELECT Students.Name, Orders.OrderID FROM Students FULL JOIN Orders ON Students.ID = Orders.StudentID;
+
+
+
 
 
 
