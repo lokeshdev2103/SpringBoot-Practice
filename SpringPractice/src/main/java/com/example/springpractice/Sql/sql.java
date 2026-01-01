@@ -153,7 +153,5 @@ package com.example.springpractice.Sql;
     deadlock : A deadlock is a situation in which two or more transactions are waiting for each other to release locks on resources, resulting in a standstill where none of the transactions can proceed.
     Example : Transaction A holds a lock on Resource 1 and is waiting for a lock on Resource 2, while Transaction B holds a lock on Resource 2 and is waiting for a lock on Resource 1.
 
-
-
 */
 
